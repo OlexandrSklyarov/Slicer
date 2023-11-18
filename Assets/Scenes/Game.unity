@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18029143, g: 0.22572419, b: 0.30693057, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -765,7 +765,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 1
+  m_UpdateMethod: 0
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
@@ -1032,9 +1032,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 123331512}
     m_Modifications:
+    - target: {fileID: 7972018186685808266, guid: e3e2d94cd45ec4621b94795b0d4004d5, type: 3}
+      propertyPath: m_Drag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7972018186685808266, guid: e3e2d94cd45ec4621b94795b0d4004d5, type: 3}
+      propertyPath: m_Constraints
+      value: 114
+      objectReference: {fileID: 0}
     - target: {fileID: 7972018186685808268, guid: e3e2d94cd45ec4621b94795b0d4004d5, type: 3}
       propertyPath: m_Name
-      value: Slicer
+      value: Sword
       objectReference: {fileID: 0}
     - target: {fileID: 7972018186685808269, guid: e3e2d94cd45ec4621b94795b0d4004d5, type: 3}
       propertyPath: m_RootOrder
