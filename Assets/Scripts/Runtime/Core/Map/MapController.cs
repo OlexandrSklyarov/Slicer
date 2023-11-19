@@ -47,25 +47,25 @@ namespace SA.Runtime.Core.Map
         private void OnSlicerEnter(MapChank chank)
         {
             chank.EnterSlicerEvent -= OnSlicerEnter;
-            _lastSlicerEnterPosition = chank.transform.position;
 
-            TryCreateNextChank();
+            TryCreateNextChank(chank.transform.position);
         }
 
-        private void TryCreateNextChank()
+        private void TryCreateNextChank(Vector3 slicerTrackPosition)
         {
-            if (_spawnChankCounter < _config.MaxChankPerLevel && IsNeedCreateNextChank())
+            if (_spawnChankCounter < _config.MaxChankPerLevel && IsNeedCreateNextChank(slicerTrackPosition))
             {
+                _lastSlicerEnterPosition = slicerTrackPosition;
                 DespawnLastChank();
                 SpawnChank();
             }
         }        
 
-        private bool IsNeedCreateNextChank()
+        private bool IsNeedCreateNextChank(Vector3 slicerTrackPosition)
         {
-            var distance = transform.position - _lastSlicerEnterPosition;
-            distance.y = 0f;
-            return distance.magnitude >= _config.CreateNextChankDistance;
+            var dist = (_lastSlicerEnterPosition - slicerTrackPosition);
+            dist.y = 0;
+            return dist.magnitude >= _config.CreateNextChankDistance;
         }
     }
 }

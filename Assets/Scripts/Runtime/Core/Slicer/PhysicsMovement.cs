@@ -7,37 +7,36 @@ namespace SA.Runtime.Core.Slicer
     public class PhysicsMovement : MonoBehaviour
     {
         [SerializeField] private PhysicsMovementConfig _config;
-        private float _rotationValue;
+
         private Rigidbody _rb;
         private Vector3 _force;
         private float _forwardForce;
-        private bool _isAccelerate;
 
         private void Awake() 
         {
             _rb = GetComponent<Rigidbody>();    
+            _force = transform.forward;
+            _forwardForce = _config.MinForwardForce;
         }
 
         private void Update()
         {
-            _force = transform.up * -1f * _config.DownForce;        
+            _force = transform.forward * _forwardForce;
+            _force += _config.DownForce * -1f * transform.up;
 
-            if (_isAccelerate)
-            {
-                _forwardForce = Mathf.Lerp(_forwardForce, _config.MaxForwardForce, Time.deltaTime * _config.AddForwardForceTimeMultiplier);
-                _isAccelerate = false;
-            }   
-            else
-            {
-                _forwardForce = Mathf.Lerp(_forwardForce, _config.MinForwardForce, Time.deltaTime * _config.SubForwardForceTimeMultiplier);
-            }
+            CalculateForwardForce();
         }
 
-        public void AddForce()
+        private void CalculateForwardForce()
         {
-            _force = transform.forward * _forwardForce;
+            var dot = Vector3.Dot(Vector3.forward, _rb.velocity.normalized);
+            var progress = Mathf.Clamp01(dot);
+            _forwardForce = Mathf.Lerp(_config.MinForwardForce, _config.MaxForwardForce, progress);
+        }
+
+        public void AddUpForce()
+        {            
             _force += transform.up * _config.UpForce;
-            _isAccelerate = true;
         }
 
         private void FixedUpdate()

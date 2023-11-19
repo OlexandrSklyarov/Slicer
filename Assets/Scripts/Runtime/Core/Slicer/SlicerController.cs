@@ -18,7 +18,7 @@ namespace SA.Runtime.Core.Slicer
         {
             if (_input.IsPressed)
             {
-                _movement.AddForce();
+                _movement.AddUpForce();
             }
         }
     }

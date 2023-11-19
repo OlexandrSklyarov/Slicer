@@ -12,22 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace3848413ef8ee49a0ce094ab7b3036, type: 3}
   m_Name: PhysicsMovementConfig
   m_EditorClassIdentifier: 
-  <MinForwardForce>k__BackingField: 5
-  <MaxForwardForce>k__BackingField: 30
-  <AddForwardForceTimeMultiplier>k__BackingField: 5
-  <SubForwardForceTimeMultiplier>k__BackingField: 10
-  <AddForwardForceCurve>k__BackingField:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  <SubForwardForceCurve>k__BackingField:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  <DownForce>k__BackingField: 10
-  <UpForce>k__BackingField: 35
-  <ForceThreshold>k__BackingField: 0.88
+  <MinForwardForce>k__BackingField: 2
+  <MaxForwardForce>k__BackingField: 45
+  <DownForce>k__BackingField: 15
+  <UpForce>k__BackingField: 50

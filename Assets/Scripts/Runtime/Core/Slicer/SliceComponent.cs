@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using EzySlice;
 using SA.Runtime.Core.Map;
 using UnityEngine;
@@ -9,6 +8,9 @@ namespace SA.Runtime.Core.Slicer
     public class SliceComponent : MonoBehaviour
     {
         private Transform _sliceItemsContainer;
+
+        private const string SLICE_PEACE_LAYER_NAME = "SlicePeace";
+
         private void Awake() 
         {
             var rb = GetComponent<Rigidbody>();
@@ -38,24 +40,38 @@ namespace SA.Runtime.Core.Slicer
 
                 for (int i = 0; i < items.Length; i++)
                 {
+                    var isUpperItem = i % 2 == 0;
+
                     var item = items[i];
+
                     item.transform.SetParent(_sliceItemsContainer);
-                    item.transform.position = target.transform.position;                    
+                    item.transform.position = target.transform.position;     
+
                     item.AddComponent<MeshCollider>().convex = true;
-
-                    var rb = item.AddComponent<Rigidbody>();
-                    var modifier = (i % 2 == 0)? 0f : 5f;
-                    rb.AddExplosionForce(100f, item.transform.position, 2f, modifier);
-
+                    item.layer = LayerMask.NameToLayer(SLICE_PEACE_LAYER_NAME);
+                   
+                    if (target.PhysicalType == PhysicalParts.Both)
+                        ItemAddForce(item, isUpperItem);
+                    else if (target.PhysicalType == PhysicalParts.Upper && isUpperItem)
+                        ItemAddForce(item, isUpperItem);
+                    else
+                        ItemAddForce(item, isUpperItem);
+                        
                     Destroy(item, 8f);
-
-                    Debug.Log("<color=green>slice Success!!!</color>");
                 }   
             }   
             else
             {
                 Debug.LogError("slice failure!!!");
             }      
+        }
+
+        private void ItemAddForce(GameObject item, bool isUpperItem)
+        {
+            var modifier = (isUpperItem)? 1f : -1f;
+            var rb = item.AddComponent<Rigidbody>();
+            var force = 2f * modifier * Vector3.up;
+            rb.AddForce(force, ForceMode.Impulse);
         }
 
         private GameObject[] ShatterObjects(GameObject source, Material crossSectionMaterial = null)

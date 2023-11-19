@@ -1032,14 +1032,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 123331512}
     m_Modifications:
-    - target: {fileID: 7972018186685808266, guid: e3e2d94cd45ec4621b94795b0d4004d5, type: 3}
-      propertyPath: m_Drag
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 7972018186685808266, guid: e3e2d94cd45ec4621b94795b0d4004d5, type: 3}
-      propertyPath: m_Constraints
-      value: 114
-      objectReference: {fileID: 0}
     - target: {fileID: 7972018186685808268, guid: e3e2d94cd45ec4621b94795b0d4004d5, type: 3}
       propertyPath: m_Name
       value: Sword
