@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using SA.Runtime.Core.Data;
 using UnityEngine;
 
@@ -8,28 +9,38 @@ namespace SA.Runtime.Core.Map
     {
         [SerializeField] private MapConfig _config;
 
-        private Vector3 _lastPivot;
-        private Vector3 _lastSlicerEnterPosition;
+        private Vector3 _nextChankSpawnPoint;
         private Queue<MapChank> _chankQueue = new();
         private int _spawnChankCounter;
+        private int _enterChankCounter;
 
         private void Start() 
         {
             for (int i = 0; i < _config.StartSpawnCount; i++)
             {
-                SpawnChank();
+                SpawnChank(true);
             }
         }
 
-        private void SpawnChank()
+        private void SpawnChank(bool isSpawnAnimation = false)
         {            
-            var chank = Instantiate(GetRandomChank(), _lastPivot, Quaternion.identity, transform);
+            var chank = Instantiate(GetRandomChank(), _nextChankSpawnPoint, Quaternion.identity, transform);
+
             chank.EnterSlicerEvent += OnSlicerEnter;
+
+            chank.name = $"{chank.name}[{chank.Pivot.position.z}]";
+
+            _nextChankSpawnPoint = chank.Pivot.position;
+            
             _chankQueue.Enqueue(chank);
-
-            _lastPivot = chank.Pivot.position;
-
             _spawnChankCounter++;
+
+            if (isSpawnAnimation)
+            {
+                var targetPos = chank.transform.position;
+                chank.transform.position = targetPos + Vector3.up * 100f;
+                chank.transform.DOMoveY(targetPos.y, 1f);
+            }
         }
 
         private MapChank GetRandomChank()
@@ -48,24 +59,23 @@ namespace SA.Runtime.Core.Map
         {
             chank.EnterSlicerEvent -= OnSlicerEnter;
 
-            TryCreateNextChank(chank.transform.position);
+            _enterChankCounter++;
+
+            TryCreateNextChank();
         }
 
-        private void TryCreateNextChank(Vector3 slicerTrackPosition)
+        private void TryCreateNextChank()
         {
-            if (_spawnChankCounter < _config.MaxChankPerLevel && IsNeedCreateNextChank(slicerTrackPosition))
+            if (_spawnChankCounter < _config.MaxChankPerLevel && IsNeedCreateNextChank())
             {
-                _lastSlicerEnterPosition = slicerTrackPosition;
                 DespawnLastChank();
-                SpawnChank();
+                SpawnChank(true);
             }
         }        
 
-        private bool IsNeedCreateNextChank(Vector3 slicerTrackPosition)
+        private bool IsNeedCreateNextChank()
         {
-            var dist = (_lastSlicerEnterPosition - slicerTrackPosition);
-            dist.y = 0;
-            return dist.magnitude >= _config.CreateNextChankDistance;
+            return _enterChankCounter >= 3;
         }
     }
 }

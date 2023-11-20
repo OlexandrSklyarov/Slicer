@@ -1,4 +1,5 @@
 using EzySlice;
+using SA.Runtime.Core.Data;
 using SA.Runtime.Core.Map;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace SA.Runtime.Core.Slicer
     [RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
     public class SliceComponent : MonoBehaviour
     {
+        [SerializeField] private SlicerConfig _config;
         private Transform _sliceItemsContainer;
 
         private const string SLICE_PEACE_LAYER_NAME = "SlicePeace";
@@ -30,8 +32,6 @@ namespace SA.Runtime.Core.Slicer
 
         private void Slice(SliceTarget target)
         {
-            Debug.Log("<color=yellow>try slice</color>");
-
             var items = ShatterObjects(target.gameObject, target.CrossSectionMaterial);
 
             if (items != null && items.Length > 0) 
@@ -50,13 +50,13 @@ namespace SA.Runtime.Core.Slicer
                     item.AddComponent<MeshCollider>().convex = true;
                     item.layer = LayerMask.NameToLayer(SLICE_PEACE_LAYER_NAME);
                    
-                    if (target.PhysicalType == PhysicalParts.Both)
+                    if (target.PhysicalType == PhysicalParts.Both ||
+                        target.PhysicalType == PhysicalParts.Upper && isUpperItem ||
+                        target.PhysicalType == PhysicalParts.Lower && !isUpperItem)
+                    {
                         ItemAddForce(item, isUpperItem);
-                    else if (target.PhysicalType == PhysicalParts.Upper && isUpperItem)
-                        ItemAddForce(item, isUpperItem);
-                    else
-                        ItemAddForce(item, isUpperItem);
-                        
+                    }
+                                           
                     Destroy(item, 8f);
                 }   
             }   
@@ -70,7 +70,7 @@ namespace SA.Runtime.Core.Slicer
         {
             var modifier = (isUpperItem)? 1f : -1f;
             var rb = item.AddComponent<Rigidbody>();
-            var force = 2f * modifier * Vector3.up;
+            var force = _config.SliceItemForce * modifier * Vector3.up;
             rb.AddForce(force, ForceMode.Impulse);
         }
 

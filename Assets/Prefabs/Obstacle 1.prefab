@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6678941064260665559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 42}
-  m_LocalScale: {x: 10.92, y: 20, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 20, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CrossSectionMaterial>k__BackingField: {fileID: 2100000, guid: 42d10f3c2d2255bb4a331f0bc507d865, type: 2}
+  <PhysicalType>k__BackingField: 2
 --- !u!65 &6703242871874986830
 BoxCollider:
   m_ObjectHideFlags: 0

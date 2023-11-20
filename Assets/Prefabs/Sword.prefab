@@ -145,8 +145,9 @@ GameObject:
   - component: {fileID: 2230684439934721105}
   - component: {fileID: 8507413043475675655}
   - component: {fileID: 3030842235710039172}
+  - component: {fileID: 6166391790043456844}
   m_Layer: 7
-  m_Name: Slicer
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -237,6 +238,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _config: {fileID: 11400000, guid: 980ecb3cb75c4ac80ae4f0b0a504ae20, type: 2}
+--- !u!114 &6166391790043456844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7972018186685808268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8201155fbaf1de38ab30a13d1e1eff8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slicerModel: {fileID: 7972018187901362895}
 --- !u!1 &7972018187199504718
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +461,7 @@ GameObject:
   - component: {fileID: 497988746660888345}
   - component: {fileID: 3594172467580279708}
   m_Layer: 0
-  m_Name: Model
+  m_Name: Slicer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -511,3 +525,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd7ffd98ae40ec2d8f1de5d6fbff42b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _config: {fileID: 11400000, guid: 67a50cf01f71ebf06a3b04ff3a3413ee, type: 2}
