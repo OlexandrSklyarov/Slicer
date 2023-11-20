@@ -1,7 +1,7 @@
 using SA.Runtime.Core.Slicer;
 using UnityEngine;
 
-namespace SA.Runtime.Core.Map
+namespace SA.Runtime.Core.SliceObjects
 {
     public class SliceTarget : MonoBehaviour
     {

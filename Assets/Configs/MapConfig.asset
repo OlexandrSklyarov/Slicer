@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: MapConfig
   m_EditorClassIdentifier: 
   <Chanks>k__BackingField:
-  - {fileID: 6580456808754808689, guid: 9c7cece59be224f0c89554369ab11bf2, type: 3}
-  - {fileID: 7533912820305544195, guid: e2e36fba75be2a3d18b632f67b431a32, type: 3}
-  - {fileID: 8263543374626386644, guid: 2fda9a6025f96d3debc8c1452d382525, type: 3}
+  - {fileID: 5867001010863264725, guid: e2e36fba75be2a3d18b632f67b431a32, type: 3}
+  - {fileID: 4567836284014320102, guid: 2fda9a6025f96d3debc8c1452d382525, type: 3}
+  - {fileID: 4615308321009295332, guid: 26d494e8afeee17febf4af30125cb168, type: 3}
+  - {fileID: 3379120078449108600, guid: baedaa46db921718da88e1439c4787e8, type: 3}
+  - {fileID: 71363058251291582, guid: 19b7347db991f3d13ab232c3fffd3596, type: 3}
   <CreateNextChankDistance>k__BackingField: 300
   <MaxChankPerLevel>k__BackingField: 20
   <StartSpawnCount>k__BackingField: 5

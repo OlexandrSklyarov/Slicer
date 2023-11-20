@@ -21,7 +21,6 @@ namespace SA.Runtime.Core.Map
             if (other.GetComponent<SlicerController>() != null)
             {
                 EnterSlicerEvent?.Invoke(this);
-                Debug.Log("Enter SlicerController");
             }
         }
     }

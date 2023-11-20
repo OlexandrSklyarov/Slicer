@@ -1,6 +1,6 @@
 using EzySlice;
 using SA.Runtime.Core.Data;
-using SA.Runtime.Core.Map;
+using SA.Runtime.Core.SliceObjects;
 using UnityEngine;
 
 namespace SA.Runtime.Core.Slicer
