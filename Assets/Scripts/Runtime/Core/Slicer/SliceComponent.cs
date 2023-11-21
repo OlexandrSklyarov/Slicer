@@ -62,7 +62,7 @@ namespace SA.Runtime.Core.Slicer
             }   
             else
             {
-                Debug.LogError("slice failure!!!");
+                Debug.LogWarning($"slice item {target.name} failure!!!");
             }      
         }
 
