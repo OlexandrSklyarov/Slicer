@@ -19,7 +19,6 @@ namespace SA.Runtime.Core.SliceObjects
             for (int i = 0; i < _targets.Length; i++)
             {
                 var item = _targets[i];
-                Debug.Log($"target {item.name}");
             
                 item.SliceEvent -= OnTargetSlice;
 

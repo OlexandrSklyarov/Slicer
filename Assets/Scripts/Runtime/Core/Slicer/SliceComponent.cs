@@ -13,14 +13,15 @@ namespace SA.Runtime.Core.Slicer
         [SerializeField] private SlicerConfig _config;
 
         private Transform _sliceItemsContainer;
-        private int _points;
+        
         private bool _isBlockInteract;
 
         private const string SLICE_PEACE_LAYER_NAME = "SlicePeace";
 
         public event Action DamageEvent;
+        public event Action<int> SliceEvent;
 
-        private void Awake() 
+        public void Init() 
         {
             _sliceItemsContainer = new GameObject($"[SliceItemContainer]").transform;
         }
@@ -33,19 +34,16 @@ namespace SA.Runtime.Core.Slicer
             {
                 _isBlockInteract = true;
                 DamageEvent?.Invoke();
-                Debug.Log($"Damage");
 
                 return;
             }
 
             if (other.TryGetComponent(out SliceTarget target))
             {
-                _points += target.Points;
+                SliceEvent?.Invoke(target.Points);
 
                 target.OnSlice();
                 Slice(target);
-
-                Debug.Log($"Points: {_points}");
             }
         }
 

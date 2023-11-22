@@ -11,7 +11,7 @@ namespace SA.Runtime.Core.Slicer
 
         private void Awake() 
         {
-            _rb = GetComponent<Rigidbody>();    
+            _rb = GetComponent<Rigidbody>();  
         }
 
         private void LateUpdate() 

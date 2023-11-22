@@ -19,7 +19,7 @@ namespace SA.Runtime.Core.Map
 
         public event Action FinishEvent;
 
-        private void Start() 
+        public void Init() 
         {
             InitChank(_startChank);
 
@@ -49,7 +49,7 @@ namespace SA.Runtime.Core.Map
 
             chank.name = $"{chank.name}[{chank.Pivot.position.z}]";
 
-            _nextChankSpawnPoint = chank.Pivot.position;
+            _nextChankSpawnPoint = chank.Pivot.position + transform.forward * _config.DistanceToNextChank;
 
             _chankQueue.Enqueue(chank);
             _spawnChankCounter++;

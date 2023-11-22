@@ -29,20 +29,20 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""PointerPress"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""317d0e08-20f2-4b8e-a6b8-863c19c6d89d"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""00ab4bf9-3eda-441e-9de2-53d4ec699e1b"",
+                    ""id"": ""a5cfd71f-c9c5-4998-a9cf-b2991d9d7356"",
                     ""path"": ""<Touchscreen>/primaryTouch/press"",
-                    ""interactions"": ""Press"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PointerPress"",
@@ -52,19 +52,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             ]
         }
     ],
-    ""controlSchemes"": [
-        {
-            ""name"": ""New control scheme"",
-            ""bindingGroup"": ""New control scheme"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<VirtualMouse>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
-        }
-    ]
+    ""controlSchemes"": []
 }");
         // Touch
         m_Touch = asset.FindActionMap("Touch", throwIfNotFound: true);
@@ -172,15 +160,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         }
     }
     public TouchActions @Touch => new TouchActions(this);
-    private int m_NewcontrolschemeSchemeIndex = -1;
-    public InputControlScheme NewcontrolschemeScheme
-    {
-        get
-        {
-            if (m_NewcontrolschemeSchemeIndex == -1) m_NewcontrolschemeSchemeIndex = asset.FindControlSchemeIndex("New control scheme");
-            return asset.controlSchemes[m_NewcontrolschemeSchemeIndex];
-        }
-    }
     public interface ITouchActions
     {
         void OnPointerPress(InputAction.CallbackContext context);

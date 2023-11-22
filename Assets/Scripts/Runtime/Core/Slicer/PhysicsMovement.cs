@@ -11,21 +11,38 @@ namespace SA.Runtime.Core.Slicer
         private Rigidbody _rb;
         private Vector3 _force;
         private float _forwardForce;
+        private bool _isInit;
 
-        private void Awake() 
+        public void Init()
         {
             _rb = GetComponent<Rigidbody>();    
+            _rb.WakeUp();
             _force = transform.forward;
             _forwardForce = _config.MinForwardForce;
+
+            _isInit = true;
         }
 
         private void Update()
         {
+            if (!_isInit) return;
+
             _force = transform.forward * _forwardForce;
             _force += _config.DownForce * -1f * transform.up;
 
-            CalculateForwardForce();
+            CalculateForwardForce();           
         }
+
+        private void FixedUpdate()
+        {
+            if (!_isInit) return;
+            
+            _rb.AddForce(_force);
+
+            var vel = _rb.velocity;
+            vel.z = Mathf.Clamp(vel.z, 0f, _config.MaxForwardForce);
+            _rb.velocity = vel;
+        }        
 
         private void CalculateForwardForce()
         {
@@ -38,14 +55,5 @@ namespace SA.Runtime.Core.Slicer
         {            
             _force += transform.up * _config.UpForce;
         }
-
-        private void FixedUpdate()
-        {
-            _rb.AddForce(_force);
-
-            var vel = _rb.velocity;
-            vel.z = Mathf.Clamp(vel.z, 0f, _config.MaxForwardForce);
-            _rb.velocity = vel;
-        }        
     }
 }

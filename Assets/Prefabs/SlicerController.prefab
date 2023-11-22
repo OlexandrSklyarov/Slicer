@@ -74,7 +74,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.6
+  m_Time: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -95,7 +95,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.6525454, g: 0.87749237, b: 0.9811321, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -112,7 +112,7 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 23708
+      atime1: 22937
       atime2: 0
       atime3: 0
       atime4: 0
@@ -215,6 +215,8 @@ MonoBehaviour:
   <LookCameraPoint>k__BackingField: {fileID: 7972018187486275457}
   _movement: {fileID: 3030842235710039172}
   _slicer: {fileID: 3594172467580279708}
+  _input: {fileID: 8507413043475675655}
+  _isCanMove: 0
 --- !u!114 &8507413043475675655
 MonoBehaviour:
   m_ObjectHideFlags: 0

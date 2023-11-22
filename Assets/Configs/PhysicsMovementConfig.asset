@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PhysicsMovementConfig
   m_EditorClassIdentifier: 
   <MinForwardForce>k__BackingField: 1
-  <MaxForwardForce>k__BackingField: 8
-  <DownForce>k__BackingField: 5
+  <MaxForwardForce>k__BackingField: 7
+  <DownForce>k__BackingField: 4
   <UpForce>k__BackingField: 25

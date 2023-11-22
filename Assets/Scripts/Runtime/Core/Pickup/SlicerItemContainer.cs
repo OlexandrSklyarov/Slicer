@@ -32,14 +32,14 @@ namespace SA.Runtime.Core.Pickup
         private SlicerItem GetItem(Vector3 pos)
         {
             //TODO: implement from pool!!!
-            return Instantiate(_prefab, pos, Quaternion.Euler(0f, 0f, 45f), transform);
+            return Instantiate(_prefab, pos, Quaternion.Euler(0f, 0f, -90f), transform);
         }
 
         private void Update()
         {
             for (int i = 0; i < _items.Count; i++)
             {
-                _items[i].transform.Rotate(Vector3.up * 30f * Time.deltaTime);
+                _items[i].transform.Rotate(30f * Time.deltaTime * Vector3.right);
             }
         }
     }
