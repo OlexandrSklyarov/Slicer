@@ -1,32 +1,51 @@
+using System;
 using EzySlice;
 using SA.Runtime.Core.Data;
+using SA.Runtime.Core.Map;
 using SA.Runtime.Core.SliceObjects;
 using UnityEngine;
 
 namespace SA.Runtime.Core.Slicer
 {
-    [RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
+    [RequireComponent(typeof(BoxCollider))]
     public class SliceComponent : MonoBehaviour
     {
         [SerializeField] private SlicerConfig _config;
+
         private Transform _sliceItemsContainer;
+        private int _points;
+        private bool _isBlockInteract;
 
         private const string SLICE_PEACE_LAYER_NAME = "SlicePeace";
 
+        public event Action DamageEvent;
+
         private void Awake() 
         {
-            var rb = GetComponent<Rigidbody>();
-            rb.isKinematic = true;
-            rb.useGravity = false;
-
             _sliceItemsContainer = new GameObject($"[SliceItemContainer]").transform;
         }
 
         private void OnTriggerEnter(Collider other)
         {
+            if (_isBlockInteract) return;
+            
+            if (other.GetComponent<Damager>() != null)
+            {
+                _isBlockInteract = true;
+                DamageEvent?.Invoke();
+                Debug.Log($"Damage");
+
+                return;
+            }
+
             if (other.TryGetComponent(out SliceTarget target))
             {
+                _points += target.Points;
+
+                target.OnSlice();
                 Slice(target);
+
+                Debug.Log($"Points: {_points}");
             }
         }
 
@@ -84,6 +103,5 @@ namespace SA.Runtime.Core.Slicer
                 crossSectionMaterial
             );
         }
-
     }
 }

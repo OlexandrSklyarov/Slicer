@@ -46,6 +46,6 @@ namespace SA.Runtime.Core.Slicer
             var vel = _rb.velocity;
             vel.z = Mathf.Clamp(vel.z, 0f, _config.MaxForwardForce);
             _rb.velocity = vel;
-        }
+        }        
     }
 }

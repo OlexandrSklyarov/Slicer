@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6184858159411884127}
   - component: {fileID: 5917613609141905654}
   - component: {fileID: 6774128299598048808}
+  - component: {fileID: 1436155164556807509}
   m_Layer: 0
   m_Name: PickupSword
   m_TagString: Untagged
@@ -59,6 +60,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.38, y: 1.82, z: 0.3}
   m_Center: {x: 0, y: 0.92, z: -0.06}
+--- !u!54 &1436155164556807509
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197524413249288494}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2155114102756194753
 PrefabInstance:
   m_ObjectHideFlags: 0

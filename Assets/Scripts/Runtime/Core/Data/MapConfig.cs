@@ -7,7 +7,7 @@ namespace SA.Runtime.Core.Data
     public class MapConfig : ScriptableObject
     {
         [field: SerializeField] public MapChank[] Chanks {get; private set;}
-        [field: SerializeField, Min(1f)] public float CreateNextChankDistance {get; private set;} = 300f;
+        [field: Space, SerializeField] public FinishChank Finish {get; private set;}
         [field: SerializeField, Min(1)] public int MaxChankPerLevel {get; private set;} = 15;
         [field: SerializeField, Min(1)] public int StartSpawnCount {get; private set;} = 4;
     }

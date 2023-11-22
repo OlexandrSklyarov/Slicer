@@ -1,0 +1,46 @@
+{
+    "name": "PlayerInputAction",
+    "maps": [
+        {
+            "name": "Touch",
+            "id": "97e4bc73-355d-4b7a-b95e-0692945aacf0",
+            "actions": [
+                {
+                    "name": "PointerPress",
+                    "type": "PassThrough",
+                    "id": "317d0e08-20f2-4b8e-a6b8-863c19c6d89d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "00ab4bf9-3eda-441e-9de2-53d4ec699e1b",
+                    "path": "<Touchscreen>/primaryTouch/press",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PointerPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "New control scheme",
+            "bindingGroup": "New control scheme",
+            "devices": [
+                {
+                    "devicePath": "<VirtualMouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

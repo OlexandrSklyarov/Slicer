@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using SA.Runtime.Core.Data;
@@ -14,6 +15,9 @@ namespace SA.Runtime.Core.Map
         private Queue<MapChank> _chankQueue = new();
         private int _spawnChankCounter;
         private int _enterChankCounter;
+        private bool _finishSpawned;
+
+        public event Action FinishEvent;
 
         private void Start() 
         {
@@ -74,16 +78,38 @@ namespace SA.Runtime.Core.Map
 
         private void TryCreateNextChank()
         {
-            if (_spawnChankCounter < _config.MaxChankPerLevel && IsNeedCreateNextChank())
+            if (_spawnChankCounter >= _config.MaxChankPerLevel)
+            {
+                SpawnFinish();
+                return;
+            }
+
+            if (IsNeedCreateNextChank())
             {
                 DespawnLastChank();
                 SpawnChank(true);
             }
-        }        
+        }
 
         private bool IsNeedCreateNextChank()
         {
             return _enterChankCounter >= 3;
+        }
+
+        private void SpawnFinish()
+        {
+            if (_finishSpawned) return;
+
+            _finishSpawned = true;
+            var finish = Instantiate(_config.Finish, _nextChankSpawnPoint, Quaternion.identity, transform);
+            finish.EnterSlicerEvent += OnSlicerFinished;
+        }
+
+        private void OnSlicerFinished(MapChank finish)
+        {
+            finish.EnterSlicerEvent -= OnSlicerFinished;
+            FinishEvent?.Invoke();
+            Debug.Log($"<color=green> FINISH!!! </color>");
         }
     }
 }
