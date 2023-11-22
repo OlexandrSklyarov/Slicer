@@ -15,8 +15,7 @@ namespace SA.Runtime.Core.Slicer
 
         public void Init()
         {
-            _rb = GetComponent<Rigidbody>();    
-            _rb.WakeUp();
+            _rb = GetComponent<Rigidbody>(); 
             _force = transform.forward;
             _forwardForce = _config.MinForwardForce;
 
@@ -47,7 +46,8 @@ namespace SA.Runtime.Core.Slicer
         private void CalculateForwardForce()
         {
             var dot = Vector3.Dot(Vector3.forward, _rb.velocity.normalized);
-            var progress = Mathf.Clamp01(dot);
+            var clamp = Mathf.Clamp01(dot);
+            var progress = _config.ForwardForceCurve.Evaluate(clamp);
             _forwardForce = Mathf.Lerp(_config.MinForwardForce, _config.MaxForwardForce, progress);
         }
 

@@ -87,7 +87,7 @@ namespace SA.Runtime.Core.Slicer
         {
             var modifier = (isUpperItem)? 1f : -1f;
             var rb = item.AddComponent<Rigidbody>();
-            var force = _config.SliceItemForce * modifier * Vector3.up;
+            var force = _config.SliceItemForce * (modifier * Vector3.up + Vector3.forward).normalized;
             rb.AddForce(force, ForceMode.Impulse);
         }
 

@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using Cinemachine;
 using SA.ripts.Runtime.Core.UI;
 using SA.Runtime.Core.Map;
@@ -14,35 +13,52 @@ namespace SA.Runtime.Core.Boot
     {
         [SerializeField] private CinemachineVirtualCamera _followCamera;
         [SerializeField] private CinemachineVirtualCamera _startCamera;
-        [SerializeField] private SlicerController _slicerController;
+        [SerializeField] private SlicerController _prefab;
+        [SerializeField] private Transform _spawnPoint;
         [SerializeField] private MapController _mapController;
 
+        private SlicerController _slicerController;
         private HudController _hud;
 
         private async void Start()
-        {            
-            await UniTask.WaitUntil(() => FindObjectOfType<HudController>() != null); 
-            _hud = FindObjectOfType<HudController>();
+        {
+            await FindHUD();
 
             _mapController.Init();
+
+            //init Slicer
+            if (_slicerController == null) 
+                _slicerController = Instantiate(_prefab, _spawnPoint.position, Quaternion.identity);
+                
+            _slicerController.enabled = false;
+            _slicerController.enabled = true;
             _slicerController.Init();
 
-            Debug.Log("_startCamera");
-            SetCameraTarget(_startCamera, _followCamera, _slicerController.transform, _slicerController.transform);   
+            await WaitSwitchCameras();
+
+            //Active slicer...
+            _mapController.FinishEvent += OnCompletedAsync;
+            _slicerController.DamageEvent += OnLossAsync;
+            _slicerController.ActiveControl(true);
+        }
+
+        private async UniTask FindHUD()
+        {
+            await UniTask.WaitUntil(() => FindObjectOfType<HudController>() != null);
+            _hud = FindObjectOfType<HudController>();
+        }
+
+        private async UniTask WaitSwitchCameras()
+        {
+            //_startCamera
+            SetCameraTarget(_startCamera, _followCamera, _slicerController.transform, _slicerController.transform);
 
             await UniTask.Delay(TimeSpan.FromSeconds(1.5f));
 
-            Debug.Log("_followCamera");
-            SetCameraTarget(_followCamera, _startCamera, _slicerController.transform, _slicerController.LookCameraPoint); 
+            //_followCamera
+            SetCameraTarget(_followCamera, _startCamera, _slicerController.transform, _slicerController.LookCameraPoint);
 
             await UniTask.Delay(TimeSpan.FromSeconds(1f));
-
-            Debug.Log("Active slicer...");
-
-            _mapController.FinishEvent += OnCompletedAsync;    
-            _slicerController.DamageEvent += OnLossAsync; 
-
-            _slicerController.ActiveControl(true);  
         }
 
         private void SetCameraTarget(CinemachineVirtualCamera camera, CinemachineVirtualCamera prevCamera, 
@@ -62,7 +78,7 @@ namespace SA.Runtime.Core.Boot
 
             await UniTask.Delay(TimeSpan.FromSeconds(3f));
 
-            SceneContext.Instance.SceneService.LoadMenu();
+            SceneContext.Instance.SceneService.LoadGame();
         }
 
         private async void OnCompletedAsync()
@@ -75,7 +91,7 @@ namespace SA.Runtime.Core.Boot
 
             await UniTask.Delay(TimeSpan.FromSeconds(3f));
 
-            SceneContext.Instance.SceneService.LoadMenu();
+            SceneContext.Instance.SceneService.LoadGame();
         }       
 
         private void StopGame()

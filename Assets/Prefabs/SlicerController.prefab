@@ -216,7 +216,6 @@ MonoBehaviour:
   _movement: {fileID: 3030842235710039172}
   _slicer: {fileID: 3594172467580279708}
   _input: {fileID: 8507413043475675655}
-  _isCanMove: 0
 --- !u!114 &8507413043475675655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _config: {fileID: 11400000, guid: 980ecb3cb75c4ac80ae4f0b0a504ae20, type: 2}
+  _rb: {fileID: 7972018186685808266}
 --- !u!114 &6166391790043456844
 MonoBehaviour:
   m_ObjectHideFlags: 0
