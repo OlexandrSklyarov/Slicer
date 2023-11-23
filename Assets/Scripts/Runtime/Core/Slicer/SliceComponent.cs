@@ -41,7 +41,7 @@ namespace SA.Runtime.Core.Slicer
 
             if (other.TryGetComponent(out SliceTarget target))
             {
-                SliceEvent?.Invoke(target.Points);
+                SliceEvent?.Invoke(target.Config.Points);
 
                 target.OnSlice();
                 Slice(target);
@@ -51,7 +51,7 @@ namespace SA.Runtime.Core.Slicer
 
         private void Slice(SliceTarget target)
         {
-            var items = ShatterObjects(target.gameObject, target.CrossSectionMaterial);
+            var items = ShatterObjects(target.gameObject, target.Config.CrossSectionMaterial);
 
             if (items != null && items.Length > 0) 
             {
@@ -69,11 +69,11 @@ namespace SA.Runtime.Core.Slicer
                     item.AddComponent<MeshCollider>().convex = true;
                     item.layer = LayerMask.NameToLayer(SLICE_PEACE_LAYER_NAME);
                    
-                    if (target.PhysicalType == PhysicalParts.Both ||
-                        target.PhysicalType == PhysicalParts.Upper && isUpperItem ||
-                        target.PhysicalType == PhysicalParts.Lower && !isUpperItem)
+                    if (target.Config.PhysicalType == PhysicalParts.Both ||
+                        target.Config.PhysicalType == PhysicalParts.Upper && isUpperItem ||
+                        target.Config.PhysicalType == PhysicalParts.Lower && !isUpperItem)
                     {
-                        ItemAddForce(item, isUpperItem, target.SliceForceAxis);
+                        ItemAddForce(item, isUpperItem, target.Config.SliceForceAxis);
                     }
                                            
                     Destroy(item, 8f);

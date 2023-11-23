@@ -113,10 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef47cb6314aa8b2048a2a5a4772e136a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CrossSectionMaterial>k__BackingField: {fileID: 2100000, guid: 920559b57f99994d4a094a52b6d0f77b, type: 2}
-  <PhysicalType>k__BackingField: 0
-  <Points>k__BackingField: 5
-  <SliceForceAxis>k__BackingField: {x: 0, y: 1, z: 0.2}
+  <Config>k__BackingField: {fileID: 11400000, guid: 9d7859921eabea0dfa79852f48b69d5d, type: 2}
 --- !u!114 &3797820723836732443
 MonoBehaviour:
   m_ObjectHideFlags: 0

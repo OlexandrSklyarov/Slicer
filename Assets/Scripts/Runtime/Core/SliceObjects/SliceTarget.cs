@@ -1,16 +1,13 @@
 using System;
 using DG.Tweening;
-using SA.Runtime.Core.Slicer;
+using SA.Runtime.Core.Data;
 using UnityEngine;
 
 namespace SA.Runtime.Core.SliceObjects
 {
     public class SliceTarget : MonoBehaviour
     {
-        [field: SerializeField] public Material CrossSectionMaterial { get; private set; }
-        [field: SerializeField] public PhysicalParts PhysicalType{ get; private set; }
-        [field: SerializeField, Min(1)] public int Points { get; private set; } = 5;
-        [field: SerializeField] public Vector3 SliceForceAxis { get; private set; } = Vector3.up;
+        [field: SerializeField] public SliceTargetConfig Config { get; private set; }
 
         private Collider[] _colliders;
 

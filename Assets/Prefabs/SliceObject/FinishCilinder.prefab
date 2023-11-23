@@ -113,10 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef47cb6314aa8b2048a2a5a4772e136a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CrossSectionMaterial>k__BackingField: {fileID: 2100000, guid: d75b8f41e959450c84ac6e967084d3e1, type: 2}
-  <PhysicalType>k__BackingField: 0
-  <Points>k__BackingField: 5
-  <SliceForceAxis>k__BackingField: {x: 0.1, y: 1, z: 0.2}
+  <Config>k__BackingField: {fileID: 11400000, guid: ef61b5e91746a822b931965ae3b40cc3, type: 2}
 --- !u!54 &7308929270448027136
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -260,10 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef47cb6314aa8b2048a2a5a4772e136a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CrossSectionMaterial>k__BackingField: {fileID: 2100000, guid: d75b8f41e959450c84ac6e967084d3e1, type: 2}
-  <PhysicalType>k__BackingField: 0
-  <Points>k__BackingField: 5
-  <SliceForceAxis>k__BackingField: {x: 0.1, y: 1, z: 0.2}
+  <Config>k__BackingField: {fileID: 11400000, guid: ef61b5e91746a822b931965ae3b40cc3, type: 2}
 --- !u!54 &2088532868748153806
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -407,10 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef47cb6314aa8b2048a2a5a4772e136a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CrossSectionMaterial>k__BackingField: {fileID: 2100000, guid: d75b8f41e959450c84ac6e967084d3e1, type: 2}
-  <PhysicalType>k__BackingField: 0
-  <Points>k__BackingField: 5
-  <SliceForceAxis>k__BackingField: {x: 0.1, y: 1, z: 0.2}
+  <Config>k__BackingField: {fileID: 11400000, guid: ef61b5e91746a822b931965ae3b40cc3, type: 2}
 --- !u!54 &814337595905468488
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -554,10 +545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef47cb6314aa8b2048a2a5a4772e136a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CrossSectionMaterial>k__BackingField: {fileID: 2100000, guid: d75b8f41e959450c84ac6e967084d3e1, type: 2}
-  <PhysicalType>k__BackingField: 0
-  <Points>k__BackingField: 5
-  <SliceForceAxis>k__BackingField: {x: 0.1, y: 1, z: 0.2}
+  <Config>k__BackingField: {fileID: 11400000, guid: ef61b5e91746a822b931965ae3b40cc3, type: 2}
 --- !u!54 &1169189626402473681
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -701,10 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef47cb6314aa8b2048a2a5a4772e136a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CrossSectionMaterial>k__BackingField: {fileID: 2100000, guid: d75b8f41e959450c84ac6e967084d3e1, type: 2}
-  <PhysicalType>k__BackingField: 0
-  <Points>k__BackingField: 5
-  <SliceForceAxis>k__BackingField: {x: 0.1, y: 1, z: 0.2}
+  <Config>k__BackingField: {fileID: 11400000, guid: ef61b5e91746a822b931965ae3b40cc3, type: 2}
 --- !u!54 &1744114916373874190
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -963,10 +948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef47cb6314aa8b2048a2a5a4772e136a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CrossSectionMaterial>k__BackingField: {fileID: 2100000, guid: d75b8f41e959450c84ac6e967084d3e1, type: 2}
-  <PhysicalType>k__BackingField: 0
-  <Points>k__BackingField: 5
-  <SliceForceAxis>k__BackingField: {x: 0.1, y: 1, z: 0.2}
+  <Config>k__BackingField: {fileID: 11400000, guid: ef61b5e91746a822b931965ae3b40cc3, type: 2}
 --- !u!54 &1029676466312208629
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1110,10 +1092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef47cb6314aa8b2048a2a5a4772e136a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CrossSectionMaterial>k__BackingField: {fileID: 2100000, guid: d75b8f41e959450c84ac6e967084d3e1, type: 2}
-  <PhysicalType>k__BackingField: 0
-  <Points>k__BackingField: 5
-  <SliceForceAxis>k__BackingField: {x: 0.1, y: 1, z: 0.2}
+  <Config>k__BackingField: {fileID: 11400000, guid: ef61b5e91746a822b931965ae3b40cc3, type: 2}
 --- !u!54 &3230482646759121003
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1257,10 +1236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef47cb6314aa8b2048a2a5a4772e136a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CrossSectionMaterial>k__BackingField: {fileID: 2100000, guid: d75b8f41e959450c84ac6e967084d3e1, type: 2}
-  <PhysicalType>k__BackingField: 0
-  <Points>k__BackingField: 5
-  <SliceForceAxis>k__BackingField: {x: 0.1, y: 1, z: 0.2}
+  <Config>k__BackingField: {fileID: 11400000, guid: ef61b5e91746a822b931965ae3b40cc3, type: 2}
 --- !u!54 &3606544505652056812
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1404,10 +1380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef47cb6314aa8b2048a2a5a4772e136a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CrossSectionMaterial>k__BackingField: {fileID: 2100000, guid: d75b8f41e959450c84ac6e967084d3e1, type: 2}
-  <PhysicalType>k__BackingField: 0
-  <Points>k__BackingField: 5
-  <SliceForceAxis>k__BackingField: {x: 0.1, y: 1, z: 0.2}
+  <Config>k__BackingField: {fileID: 11400000, guid: ef61b5e91746a822b931965ae3b40cc3, type: 2}
 --- !u!54 &6734231487324203220
 Rigidbody:
   m_ObjectHideFlags: 0
