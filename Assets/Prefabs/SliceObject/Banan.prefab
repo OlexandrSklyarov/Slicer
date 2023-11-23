@@ -128,6 +128,7 @@ MonoBehaviour:
   <CrossSectionMaterial>k__BackingField: {fileID: 2100000, guid: 6f83b7314bb009b4dbe7ce81b1989e4b, type: 2}
   <PhysicalType>k__BackingField: 0
   <Points>k__BackingField: 5
+  <SliceForceAxis>k__BackingField: {x: 1, y: 1, z: 1}
 --- !u!54 &3436312466223592594
 Rigidbody:
   m_ObjectHideFlags: 0

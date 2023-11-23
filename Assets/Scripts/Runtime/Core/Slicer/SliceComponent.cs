@@ -71,7 +71,7 @@ namespace SA.Runtime.Core.Slicer
                         target.PhysicalType == PhysicalParts.Upper && isUpperItem ||
                         target.PhysicalType == PhysicalParts.Lower && !isUpperItem)
                     {
-                        ItemAddForce(item, isUpperItem);
+                        ItemAddForce(item, isUpperItem, target.SliceForceAxis);
                     }
                                            
                     Destroy(item, 8f);
@@ -83,11 +83,11 @@ namespace SA.Runtime.Core.Slicer
             }      
         }
 
-        private void ItemAddForce(GameObject item, bool isUpperItem)
+        private void ItemAddForce(GameObject item, bool isUpperItem, Vector3 sliceForceAxis)
         {
             var modifier = (isUpperItem)? 1f : -1f;
             var rb = item.AddComponent<Rigidbody>();
-            var force = _config.SliceItemForce * (modifier * Vector3.up + Vector3.forward).normalized;
+            var force = _config.SliceItemForce * (modifier * sliceForceAxis).normalized;
             rb.AddForce(force, ForceMode.Impulse);
         }
 

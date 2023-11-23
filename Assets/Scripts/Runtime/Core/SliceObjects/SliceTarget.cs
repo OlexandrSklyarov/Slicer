@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using DG.Tweening;
 using SA.Runtime.Core.Slicer;
 using UnityEngine;
@@ -11,6 +10,7 @@ namespace SA.Runtime.Core.SliceObjects
         [field: SerializeField] public Material CrossSectionMaterial { get; private set; }
         [field: SerializeField] public PhysicalParts PhysicalType{ get; private set; }
         [field: SerializeField, Min(1)] public int Points { get; private set; } = 5;
+        [field: SerializeField] public Vector3 SliceForceAxis { get; private set; } = Vector3.up;
 
         private Collider[] _colliders;
 
