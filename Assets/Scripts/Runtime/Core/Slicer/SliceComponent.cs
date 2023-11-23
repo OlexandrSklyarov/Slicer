@@ -11,6 +11,7 @@ namespace SA.Runtime.Core.Slicer
     public class SliceComponent : MonoBehaviour
     {
         [SerializeField] private SlicerConfig _config;
+        [SerializeField] private ParticleSystem _SliceVFX;
 
         private Transform _sliceItemsContainer;
         
@@ -44,6 +45,7 @@ namespace SA.Runtime.Core.Slicer
 
                 target.OnSlice();
                 Slice(target);
+                _SliceVFX.Play();
             }
         }
 
