@@ -15,17 +15,17 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.373042, g: 0.8528667, b: 0.9528302, a: 1}
+  m_FogColor: {r: 0.18369527, g: 0.65789765, b: 0.9056604, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.19575472, g: 0.66437966, b: 0.7830189, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.6339, g: 0.6600835, b: 0.7264151, a: 1}
+  m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0.5900912, g: 0.5873531, b: 0.6320754, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -519,7 +519,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 63
+  field of view: 60.25
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1083,10 +1083,18 @@ PrefabInstance:
     - target: {fileID: 8188614285685852093, guid: abfacd54b5c356b8eb795673c97963be, type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 1196423737}
+      objectReference: {fileID: 0}
     - target: {fileID: 8188614285685852093, guid: abfacd54b5c356b8eb795673c97963be, type: 3}
       propertyPath: m_LookAt
       value: 
-      objectReference: {fileID: 1196423737}
+      objectReference: {fileID: 0}
+    - target: {fileID: 8188614285685852093, guid: abfacd54b5c356b8eb795673c97963be, type: 3}
+      propertyPath: m_ComponentOwner
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8188614285685852093, guid: abfacd54b5c356b8eb795673c97963be, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 60.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abfacd54b5c356b8eb795673c97963be, type: 3}
